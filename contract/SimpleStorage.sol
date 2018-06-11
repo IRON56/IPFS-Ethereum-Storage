@@ -1,16 +1,21 @@
 contract SimpleStorage {
-    function stored(element){
-    this.element = element;
-    this.next = null;
-    }
-    var storedData = new stored(null);
+
+    string storedData1 = "";
+    string storedData2 = "";
+    string storedData3 = "";
 
     function set(string x) {
-        storedData = new stored(x);
-        storedData.next=currentData;
+        if (storedData1=="")
+            storedData1=x;
+        else if (storedData2=="")
+            storedData2=x;
+        else if (storedData3=="")
+            storedData3=x;
     }
 
     function get() constant returns (string x) {
-        return storedData.element;
+        string storedData ="";
+        storedData.concat(storedData1,storedData2,storedData3);
+        return storedData;
     }
 }
